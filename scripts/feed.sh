@@ -95,9 +95,10 @@ for episode in ${EPS[@]}; do
 EOF
   feed="${feed}${next}"
   COUNT=$((COUNT+1))
+  sleep 5
 done
 
 
 END="</channel></rss>"
 
-echo $feed$END | tee rss.xml
+echo $feed$END | tee podcast.xml
