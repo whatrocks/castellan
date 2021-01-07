@@ -6,7 +6,7 @@ PODCAST_AUTHOR="Castellan"
 CATEGORY="Technology"
 GENERATOR="Castellan"
 LINK="https://whatrocks.github.io/castellan/"
-IMG="https://whatrocks.github.io/castellan/frankenstein.png"
+IMG="https://whatrocks.github.io/castellan/frankenstein.jpg"
 
 # automatic
 CURRENT_DATE=$(date -R)
