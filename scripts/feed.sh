@@ -103,23 +103,4 @@ END="""
 </rss>
 """
 
-echo $BEGIN$END
-
-#     
-#     <item>
-#       <guid>a1zDuOPkMSw</guid>
-#       <title>Hamming, &#34;You and Your Research&#34; (June 6, 1995)</title>
-#       <link>https://youtube.com/watch?v=a1zDuOPkMSw</link>
-#       <description>Intro: I have given a talk with this title many times, and it turns out from discussions after the talk I could have just as well have called it &#34;You and Your Engineering Career,&#34; or even &#34;You and Your Career.&#34; But I left the word &#34;Research&#34; in the title because that is what I have most studied. From the previous chapters you have an adequate background for how I made the study, and I need not mention again the names of the famous people I have studied closely. The earlier chapters are, in sense, just a great expansion, with much more detail, of the original talk. This chapter is, in a sense, a summary of the previous chapters.&#xA;&#xA;&#xA;&#xA;The Art of Doing Science and Engineering: Learning to Learn&#34; was the capstone course by Dr. Richard W. Hamming (1915-1998) for graduate students at the Naval Postgraduate School (NPS) in Monterey California. &#xA;&#xA;This course is intended to instill a &#34;style of thinking&#34; that will enhance one&#39;s ability to function as a problem solver of complex technical issues. With respect, students sometimes called the course &#34;Hamming on Hamming&#34; because he relates many research collaborations, discoveries, inventions and achievements of his own. This collection of stories and carefully distilled insights relates how those discoveries came about. Most importantly, these presentations provide objective analysis about the thought processes and reasoning that took place as Dr. Hamming, his associates and other major thinkers, in computer science and electronics, progressed through the grand challenges of science and engineering in the twentieth century.</description>
-#       <pubDate>Wed, 06 Jan 2021 05:50:07 +0000</pubDate>
-#       <enclosure url="https://rockswhat.github.io/listener/listen_laterz/a1zDuOPkMSw.mp3" length="25044093" type="audio/mpeg"></enclosure>
-#       <itunes:author>$PODCAST_TITLE</itunes:author>
-#       <itunes:subtitle>Hamming, &#34;You and Your Research&#34; (June 6, 1995)</itunes:subtitle>
-#       <itunes:summary><![CDATA[Intro: I have given a talk with this title many times, and it turns out from discussions after the talk I could have just as well have called it "You and Your Engineering Career," or even "You and Your Career." But I left the word "Research" in the title because that is what I have most studied. From the previous chapters you have an adequate background for how I made the study, and I need not mention again the names of the famous people I have studied closely. The earlier chapters are, in sense, just a great expansion, with much more detail, of the original talk. This chapter is, in a sense, a summary of the previous chapters.
-# The Art of Doing Science and Engineering: Learning to Learn" was the capstone course by Dr. Richard W. Hamming (1915-1998) for graduate students at the Naval Postgraduate School (NPS) in Monterey California. 
-# This course is intended to instill a "style of thinking" that will enhance one's ability to function as a problem solver of complex technical issues. With respect, students sometimes called the course "Hamming on Hamming" because he relates many research collaborations, discoveries, inventions and achievements of his own. This collection of stories and carefully distilled insights relates how those discoveries came about. Most importantly, these presentations provide objective analysis about the thought processes and reasoning that took place as Dr. Hamming, his associates and other major thinkers, in computer science and electronics, progressed through the grand challenges of science and engineering in the twentieth century.]]></itunes:summary>
-#       <itunes:image href="https://i.ytimg.com/vi/a1zDuOPkMSw/default.jpg"></itunes:image>
-#       <itunes:duration>44:03</itunes:duration>
-#       <itunes:explicit>no</itunes:explicit>
-#       <itunes:order>3</itunes:order>
-#     </item>
+echo $BEGIN$END | tee feed.xml
