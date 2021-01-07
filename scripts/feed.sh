@@ -46,7 +46,8 @@ EPS=(
   license
 )
 
-BEGIN="""<?xml version="1.0" encoding="UTF-8"?>
+read -d '' feed << EOF
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>$PODCAST_TITLE</title>
@@ -68,7 +69,12 @@ BEGIN="""<?xml version="1.0" encoding="UTF-8"?>
     <itunes:image href="$IMAGE"></itunes:image>
     <itunes:explicit>no</itunes:explicit>
     <itunes:category text="$CATEGORY"></itunes:category>
-"""
+EOF
+
+echo $feed
+
+# exit 0
+
 COUNT=1
 for episode in ${EPS[@]}; do
   echo "processing $episode..."
@@ -76,7 +82,7 @@ for episode in ${EPS[@]}; do
   MP3_SIZE="$(wc -c <"$MP3_FILE")"
   UUID=($uuidgen)
   DURATION="$(ffprobe -show_entries stream=duration -of compact=p=0:nk=1 -v fatal $MP3_FILE)"
-  NEXT="""
+  read -d '' next << EOF
   <item>
       <guid>$UUID</guid>
       <title>$episode</title>
@@ -92,15 +98,12 @@ for episode in ${EPS[@]}; do
       <itunes:explicit>no</itunes:explicit>
       <itunes:order>$COUNT</itunes:order>
     </item>
-"""
-  BEGIN="${BEGIN}${NEXT}"
+EOF
+  feed="${feed}${next}"
   COUNT=$((COUNT+1))
 done
 
 
-END="""
-  </channel>
-</rss>
-"""
+END="</channel></rss>"
 
-echo $BEGIN$END | tee feed.xml
+echo $feed$END | tee feed.xml
