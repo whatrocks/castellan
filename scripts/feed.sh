@@ -58,15 +58,10 @@ read -d '' feed << EOF
     <language>en-us</language>
     <lastBuildDate>$CURRENT_DATE</lastBuildDate>
     <pubDate>$CURRENT_DATE</pubDate>
-    <image>
-      <url>$IMG</url>
-      <title>$PODCAST_TITLE</title>
-      <link>$LINK</link>
-    </image>
     <itunes:author>$PODCAST_AUTHOR</itunes:author>
     <itunes:subtitle>$PODCAST_TITLE</itunes:subtitle>
     <itunes:summary><![CDATA[$PODCAST_TITLE ($CURRENT_DATE)]]></itunes:summary>
-    <itunes:image href="$IMG"></itunes:image>
+    <itunes:image href="$IMG"/>
     <itunes:explicit>no</itunes:explicit>
     <itunes:category text="$CATEGORY"></itunes:category>
 EOF
