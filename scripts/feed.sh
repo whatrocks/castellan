@@ -73,14 +73,12 @@ EOF
 
 echo $feed
 
-# exit 0
-
 COUNT=1
 for episode in ${EPS[@]}; do
   echo "processing $episode..."
   MP3_FILE="book/pieces/mp3/$episode.mp3"
   MP3_SIZE="$(wc -c <"$MP3_FILE")"
-  UUID=($uuidgen)
+  UUID=$(uuidgen)
   DURATION="$(ffprobe -show_entries stream=duration -of compact=p=0:nk=1 -v fatal $MP3_FILE)"
   read -d '' next << EOF
   <item>
