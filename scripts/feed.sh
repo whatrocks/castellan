@@ -59,9 +59,9 @@ read -d '' feed << EOF
     <lastBuildDate>$CURRENT_DATE</lastBuildDate>
     <pubDate>$CURRENT_DATE</pubDate>
     <image>
-      <url>$IMAGE</url>
+      <url>$IMG</url>
       <title>$PODCAST_TITLE</title>
-      <link>$LINK</link>
+      <link>$IMG</link>
     </image>
     <itunes:author>$PODCAST_AUTHOR</itunes:author>
     <itunes:subtitle>$PODCAST_TITLE</itunes:subtitle>
@@ -79,6 +79,7 @@ for episode in ${EPS[@]}; do
   MP3_FILE="book/pieces/mp3/$episode.mp3"
   MP3_SIZE="$(wc -c <"$MP3_FILE")"
   UUID=$(uuidgen)
+  NEXT_DATE=$(date -R)
   DURATION="$(ffprobe -show_entries stream=duration -of compact=p=0:nk=1 -v fatal $MP3_FILE)"
   read -d '' next << EOF
   <item>
@@ -86,12 +87,12 @@ for episode in ${EPS[@]}; do
       <title>$episode</title>
       <link>$LINK$MP3_FILE</link>
       <description>$PODCAST_TITLE: $episode</description>
-      <pubDate>$CURRENT_DATE</pubDate>
+      <pubDate>$NEXT_DATE</pubDate>
       <enclosure url="$LINK$MP3_FILE" length="$MP3_SIZE" type="audio/mpeg"></enclosure>
       <itunes:author>$PODCAST_AUTHOR</itunes:author>
       <itunes:subtitle>$episode</itunes:subtitle>
       <itunes:summary>Audio generated from the text of this chapter</itunes:summary>
-      <itunes:image href="$IMAGE"></itunes:image>
+      <itunes:image href="$IMG"></itunes:image>
       <itunes:duration>$DURATION</itunes:duration>
       <itunes:explicit>no</itunes:explicit>
       <itunes:order>$COUNT</itunes:order>
