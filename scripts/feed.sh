@@ -61,6 +61,7 @@ read -d '' feed << EOF
     <image>
       <url>$IMG</url>
       <title>$PODCAST_TITLE</title>
+      <link>$LINK</link>
     </image>
     <itunes:author>$PODCAST_AUTHOR</itunes:author>
     <itunes:subtitle>$PODCAST_TITLE</itunes:subtitle>
