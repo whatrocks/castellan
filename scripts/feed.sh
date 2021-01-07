@@ -100,4 +100,4 @@ done
 
 END="</channel></rss>"
 
-echo $feed$END | tee feed.xml
+echo $feed$END | tee rss.xml
