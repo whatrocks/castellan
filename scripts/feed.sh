@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # edit these to your liking
-PODCAST_TITLE="Castellan - Frankenstein"
+PODCAST_TITLE="Castellan - Frankenstein Jr."
 PODCAST_AUTHOR="Castellan"
 CATEGORY="Technology"
 GENERATOR="Castellan"
@@ -71,7 +71,7 @@ echo $feed
 COUNT=1
 for episode in ${EPS[@]}; do
   echo "processing $episode..."
-  MP3_FILE="book/pieces/mp3/$episode.mp3"
+  MP3_FILE="book/pieces/bettermp3/$episode.mp3"
   MP3_SIZE="$(wc -c <"$MP3_FILE")"
   UUID=$(uuidgen)
   NEXT_DATE=$(date -R)
@@ -95,10 +95,10 @@ for episode in ${EPS[@]}; do
 EOF
   feed="${feed}${next}"
   COUNT=$((COUNT+1))
-  sleep 5
+  sleep 1
 done
 
 
 END="</channel></rss>"
 
-echo $feed$END | tee podcast.xml
+echo $feed$END | tee podcastjr.xml
